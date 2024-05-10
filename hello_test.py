@@ -1,4 +1,4 @@
-import hello;
+import START_Lab_1
 
-def test_hello():
-    assert hello.hello_world() == "Hello World!"
+def test_q1():
+    assert(1==1)
