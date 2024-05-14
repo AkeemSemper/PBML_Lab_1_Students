@@ -3,9 +3,9 @@ import START_Lab_1 as user_input_file
 import pytest
 import urllib.request
 
-correct_url = "https://github.com/AkeemSemper/Programming_Basics_for_ML/raw/main/course_material/labs/lab1/SAMP_SOL_responses.csv"
-correct_file = urllib.request.urlretrieve(correct_url, "SAMP_SOL_responses.csv")
-df_correct = pd.read_csv(correct_file)
+#correct_url = "https://github.com/AkeemSemper/Programming_Basics_for_ML/raw/main/course_material/labs/lab1/SAMP_SOL_responses.csv"
+#correct_file = urllib.request.urlretrieve(correct_url, "SAMP_SOL_responses.csv")
+df_correct = pd.read_csv("SAMP_SOL_responses.csv")
 #df_correct = pd.read_csv("SAMP_SOL_responses.csv")
 
 
