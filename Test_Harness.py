@@ -1,5 +1,5 @@
 import pandas as pd
-import user_input_file
+import START_Lab_1 as user_input_file
 import pytest
 
 correct_url = "https://github.com/AkeemSemper/Programming_Basics_for_ML/raw/main/course_material/labs/lab1/SAMP_SOL_responses.csv"
