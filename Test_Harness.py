@@ -1,10 +1,17 @@
 import pandas as pd
 import START_Lab_1 as user_input_file
 import pytest
+import urllib.request
 
 correct_url = "https://github.com/AkeemSemper/Programming_Basics_for_ML/raw/main/course_material/labs/lab1/SAMP_SOL_responses.csv"
-df_correct = pd.read_csv(correct_url)
+correct_file = urllib.request.urlretrieve(correct_url, "SAMP_SOL_responses.csv")
+df_correct = pd.read_csv(correct_file)
 #df_correct = pd.read_csv("SAMP_SOL_responses.csv")
+
+
+
+# Download the file from correct_url
+
 
 #Q1
 test_list_1 = df_correct[df_correct["Question"] == 1]
