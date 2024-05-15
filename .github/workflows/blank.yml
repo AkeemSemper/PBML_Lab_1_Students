@@ -69,14 +69,14 @@ jobs:
           # Clear
           rm -rf Programming_Basics_for_ML
 
-      - name: Download other file
-        if: github.repository_owner == 'AkeemSemperDataScience'
-        run: |
+      #- name: Download other file
+        #if: github.repository_owner == 'AkeemSemperDataScience'
+        #run: |
           # Check Status
           #ls -rf
 
           # Copy all
-          cp -r Programming_Basics_for_ML/course_material/labs/lab1/* .
+          #cp -r Programming_Basics_for_ML/course_material/labs/lab1/* .
           #rm -f SAMP_SOL*
           #ls -la workbooks
 #Test Grades
