@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "status": "pass",
+  "tests": [
+    {
+      "name": "test q1",
+      "status": "pass",
+      "test_code": "assert(1==1)",
+      "task_id": 0,
+      "filename": "hello_test.py",
+      "line_no": 2,
+      "duration": 9.374500001513297e-05,
+      "score": 5.0
+    }
+  ],
+  "max_score": 5
+}
