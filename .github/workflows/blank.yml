@@ -16,7 +16,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   job-public-repo-ubuntu:
-    if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
+    #if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -27,6 +27,15 @@ jobs:
           echo "GH_PAT=${{ secrets.GH_PAT }}" >> $GITHUB_ENV
       
       - name: Open Original Repository
+        if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
+        uses: actions/checkout@v4
+        with:
+          repository: 'AkeemSemper/PBML_Lab_1_Students'
+          ref: 'main'
+
+          #token: ${{ secrets.GH_PAT }}
+      - name: Open Assginment Repository
+        if: github.repository_owner = 'AkeemSemperDataScience'
         uses: actions/checkout@v4
         with:
           repository: 'AkeemSemper/PBML_Lab_1_Students'
@@ -45,7 +54,28 @@ jobs:
           repository: 'Programming_Basics_for_ML'
           access-token: ${{ secrets.GH_PAT }}
 
-      - name: Access cloned repository content 
+      - name: Access cloned repository content
+        if: github.repository == 'AkeemSemper/PBML_Lab_1_Students' 
+        run: |
+          # Check Status
+          #ls -rf
+
+          # Copy all
+          cp -r Programming_Basics_for_ML/course_material/labs/lab1/* .
+          rm -f SAMP_SOL*
+          #ls -la workbooks
+
+          # Clear
+          rm -rf Programming_Basics_for_ML
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Generated Update from Main Repository"
+          git push --force
+
+      - name: Access cloned repository content
+        if: github.repository_owner = 'AkeemSemperDataScience'
         run: |
           # Check Status
           #ls -rf
