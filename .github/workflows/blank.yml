@@ -35,7 +35,7 @@ jobs:
 
           #token: ${{ secrets.GH_PAT }}
       - name: Open Assginment Repository
-        if: github.repository_owner = 'AkeemSemperDataScience'
+        if: github.repository_owner == 'AkeemSemperDataScience'
         uses: actions/checkout@v4
         with:
           repository: 'AkeemSemper/PBML_Lab_1_Students'
@@ -75,7 +75,7 @@ jobs:
           git push --force
 
       - name: Access cloned repository content
-        if: github.repository_owner = 'AkeemSemperDataScience'
+        if: github.repository_owner == 'AkeemSemperDataScience'
         run: |
           # Check Status
           #ls -rf
