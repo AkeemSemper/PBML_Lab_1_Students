@@ -16,6 +16,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   job-public-repo-ubuntu:
+    if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
     runs-on: ubuntu-latest
     permissions:
       contents: write
