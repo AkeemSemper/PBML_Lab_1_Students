@@ -74,7 +74,7 @@ jobs:
           git commit -m "Generated Update from Main Repository"
           git push --force
 
-      - name: Access cloned repository content
+      - name: Download other file
         if: github.repository_owner == 'AkeemSemperDataScience'
         run: |
           # Check Status
@@ -85,11 +85,18 @@ jobs:
           #rm -f SAMP_SOL*
           #ls -la workbooks
 
-          # Clear
-          rm -rf Programming_Basics_for_ML
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Generated Update from Main Repository"
-          git push --force
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Test_4
+        id: test_4
+        uses: classroom-resources/autograding-python-grader@v1
+        with:
+          timeout: 10
+          max-score: 5
+          setup-command: pip install pandas pytest
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          TEST_4_RESULTS: "${{steps.test_4.outputs.result}}"
+        with:
+          runners: test_4
