@@ -68,12 +68,6 @@ jobs:
 
           # Clear
           rm -rf Programming_Basics_for_ML
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Generated Update from Main Repository"
-          git push --force
 
       - name: Download other file
         if: github.repository_owner == 'AkeemSemperDataScience'
@@ -85,7 +79,7 @@ jobs:
           cp -r Programming_Basics_for_ML/course_material/labs/lab1/* .
           #rm -f SAMP_SOL*
           #ls -la workbooks
-
+#Test Grades
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Test_4
@@ -101,3 +95,12 @@ jobs:
           TEST_4_RESULTS: "${{steps.test_4.outputs.result}}"
         with:
           runners: test_4
+#Push Changes
+      - name: Commit and push changes
+        if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Generated Update from Main Repository"
+          git push --force
