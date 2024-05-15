@@ -47,12 +47,13 @@ jobs:
           ls
           git status
 
-      #- name: Clone GuillaumeFalourd/poc-github-actions PRIVATE repository
-      #  uses: GuillaumeFalourd/clone-github-repo-action@main
-      #  with:
-      #    owner: 'AkeemSemper'
-      #    repository: 'Programming_Basics_for_ML'
-      #    access-token: ${{ secrets.GH_PAT }}
+      - name: Clone GuillaumeFalourd/poc-github-actions PRIVATE repository
+        if: github.repository == 'AkeemSemper/PBML_Lab_1_Students'
+        uses: GuillaumeFalourd/clone-github-repo-action@main
+        with:
+          owner: 'AkeemSemper'
+          repository: 'Programming_Basics_for_ML'
+          access-token: ${{ secrets.GH_PAT }}
 
       - name: Access cloned repository content
         if: github.repository == 'AkeemSemper/PBML_Lab_1_Students' 
