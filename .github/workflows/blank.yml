@@ -63,7 +63,7 @@ jobs:
 
           # Copy all
           cp -r Programming_Basics_for_ML/course_material/labs/lab1/* .
-          rm -f SAMP_SOL*
+          rm -rf SAMP_SOL*
           #ls -la workbooks
 
           # Clear
